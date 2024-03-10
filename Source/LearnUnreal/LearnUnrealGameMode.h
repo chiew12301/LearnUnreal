@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Http.h"
 #include "LearnUnrealGameMode.generated.h"
 
 UCLASS(minimalapi)
@@ -13,6 +14,10 @@ class ALearnUnrealGameMode : public AGameModeBase
 
 public:
 	ALearnUnrealGameMode();
+
+	virtual void StartPlay() override;
+private:
+	void OnResponseReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bConnectedSuccessfully);
 };
 
 
